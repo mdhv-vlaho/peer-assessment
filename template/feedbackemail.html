@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Peer Assessment</title>
+</head>
+<body>
+
+<p>Hi there!</p>
+
+<p>Here is your peer assessment feedback for the {{ tutorialdate }} tutorial.</p>
+
+{% for evaluation in evaluations %}
+
+<p style="font-weight: bold">Evaluation {{ loop.index }}
+
+    {% if evaluation[3]: %}
+        (Instructor Feedback)
+    {% else %}
+        (Peer Feedback)
+    {% endif %}
+
+</p>
+<p><ol><li>Was the student prepared? {{ evaluation[0] }}</li>
+    <li>Was the student clear in their presentation? {{ evaluation[1] }}</li>
+    <li>Comments: {{ evaluation[2] }}</li></ol>
+</p>
+
+{% endfor %}
+
+<p>This email was computer-generated using data submitted on Microsoft Forms. This program was developed by Danielle Vlaho and Mitch Huot for use in the CHEM 212 and 222 courses. If you receive this email in duplicate, we are sorry for the error. If you have questions, please direct them to the course email account.</p>
+</body>
+</html>
